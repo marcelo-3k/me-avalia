@@ -34,6 +34,7 @@ const App = () => {
     fetchMovies()
   }, [])
 
+  const handleCleanWatchedMovieList = () => setWatchedMovies([])
   const handleClickDelete = (id) => setWatchedMovies((prev) => prev.filter(movie => movie.id !== id))
   const handleSelectBack = () => setSelectedMovie(null)
   const handleSelectMovie = async (currentSelectedMovie) => {
@@ -100,8 +101,16 @@ const App = () => {
       <div className="grid grid-cols-2 gap-6 w-full h-full max-w-5xl mx-auto px-24 mt-6">
         <MoviesList movies={movies} onSelected={handleSelectMovie}/>
         {selectedMovie 
-          ? <SelectedMovie movie={selectedMovie} onBack={handleSelectBack} onRating={handleRating}/> 
-          : <WatchList movies={watchedMovies} onDeleteMovie={handleClickDelete} />
+          ? <SelectedMovie 
+            movie={selectedMovie} 
+            onBack={handleSelectBack} 
+            onRating={handleRating}
+          /> 
+          : <WatchList 
+              movies={watchedMovies} 
+              onDeleteMovie={handleClickDelete} 
+              onClean={handleCleanWatchedMovieList}
+            />
         }
       </div>
     </>
