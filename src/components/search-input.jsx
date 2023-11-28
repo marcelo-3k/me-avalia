@@ -1,8 +1,8 @@
 import { Search as SearchIcon } from "lucide-react"
 
-const SearchInput = () => {
+const SearchInput = ({ handleSearchMovie }) => {
   return (
-    <div className="relative">
+    <form className="relative" onSubmit={handleSearchMovie}>
       <label htmlFor="search" className="sr-only"></label>
       <input
         type="search"
@@ -14,7 +14,7 @@ const SearchInput = () => {
       <button>
         <SearchIcon size={20} strokeWidth={1.5} className="absolute top-3 right-3 text-violet-500"/>
       </button>
-    </div>
+    </form>
   )
 }
 
