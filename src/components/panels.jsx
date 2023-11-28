@@ -3,9 +3,11 @@ import { MoviesList } from "./movies-list"
 import { SelectedMovie } from "./selected-movie"
 import { WatchList } from "./watch-list"
 
-const Panels = () => {
+  const Panels = () => {
   const [movies, setMovies] = useState([])
-  const [isSelectedMovie, setIsSelectedMovie] = useState(false)
+  const [selectedMovie, setSelectedMovie] = useState(null)
+  const [watchedMovies, setWatchedMovies] = useState(null)
+  console.log(selectedMovie)
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -37,10 +39,17 @@ const Panels = () => {
     fetchMovies()
   }, [])
 
+  const handleSelectBack = () => setSelectedMovie(null)
+  const handleSelectMovie = (selectedMovie) => 
+    setSelectedMovie(prev => prev?.id === selectedMovie.id ? null : selectedMovie)
+
   return (
     <div className="grid grid-cols-2 gap-6 w-full h-full max-w-5xl mx-auto px-24 mt-6">
-      <MoviesList movies={movies} />
-      {isSelectedMovie ? <SelectedMovie /> : <WatchList />}
+      <MoviesList movies={movies} onSelected={handleSelectMovie}/>
+      {selectedMovie 
+        ? <SelectedMovie movie={selectedMovie} onBack={handleSelectBack} /> 
+        : <WatchList movies={watchedMovies} />
+      }
     </div>
   )
 }

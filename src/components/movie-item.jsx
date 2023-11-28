@@ -1,8 +1,8 @@
 import { Calendar as CalendarIcon } from "lucide-react"
 
-const MovieItem = ({ poster, title, year }) => {
+const MovieItem = ({ poster, title, year, onSelected }) => {
   return (
-    <div className="flex items-center gap-5 item">
+    <li className="flex items-center gap-5 item" onClick={onSelected}>
       <img 
         src={poster} 
         alt=""
@@ -15,7 +15,7 @@ const MovieItem = ({ poster, title, year }) => {
           <span>{year}</span>
         </p>
       </div>
-    </div>
+    </li>
   )
 }
 

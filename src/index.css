@@ -19,4 +19,8 @@ body {
   .rating-stars {
     @apply flex items-center gap-1 m-5 p-4 border rounded text-yellow-400 bg-violet-50
   }
+
+  .backtip {
+    @apply hidden absolute -top-9 p-1 rounded text-sm text-violet-800 bg-violet-50 group-hover:inline-block
+  }
 }

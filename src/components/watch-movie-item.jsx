@@ -5,21 +5,21 @@ import {
   Trash2 as Trash2Icon
 } from "lucide-react"
 
-const WatchMovieItem = () => {
+const WatchMovieItem = ({ movie }) => {
   return (
     <div className="flex items-center justify-between gap-5 item">
       <div className="flex items-center gap-4">
         <img
-          src="https://i.ebayimg.com/images/g/XSkAAMXQ0pNQ90S4/s-l500.jpg"
-          alt=""
+          src={movie.poster}
+          alt={movie.title}
           className="w-16 h-20 rounded-md border"
         />
         <div className="grid gap-2">
-          <p className="text-lg font-medium">The Matrix</p>
+          <p className="text-lg font-medium">{movie.title}</p>
           <div className="flex items-center gap-2">
             <p className="flex items-center gap-2">
               <StarIcon size={20} strokeWidth={1.5} />
-              <span>7.9</span>
+              <span>{movie.imdbRating}</span>
             </p>
             <p className="flex items-center gap-2">
               <ThumbsUpIcon size={20} strokeWidth={1.5} />
@@ -27,7 +27,7 @@ const WatchMovieItem = () => {
             </p>
             <p className="flex items-center gap-2">
               <HourglassIcon size={20} strokeWidth={1.5} />
-              <span>136 min</span>
+              <span>{movie.runtime} min</span>
             </p>
           </div>
         </div>

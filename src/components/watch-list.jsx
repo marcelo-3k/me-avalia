@@ -1,7 +1,7 @@
 import { Clapperboard as ClapperboardIcon, Watch as WatchIcon } from "lucide-react"
 import { WatchMovieItem } from "./watch-movie-item"
 
-const WatchHeader = () => {
+const WatchHeader = ({ movies }) => {
   return (
     <div className="p-5 bg-violet-900/20 border">
         <div className="flex items-center justify-between mb-2">
@@ -11,22 +11,22 @@ const WatchHeader = () => {
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-2">
             <ClapperboardIcon size={20} strokeWidth={1.5} />
-            <span>2 filmes</span>
+            <span><strong>{movies ? movies.length : 0}</strong> filmes</span>
           </div>
           <div className="flex items-center gap-2">
             <WatchIcon size={20} strokeWidth={1.5} />
-            <span>142 min</span>
+            <span>{movies ? movies.runtime : 0} min</span>
           </div>
         </div>
       </div>
   )
 }
 
-const WatchList = () => {
+const WatchList = ({ movies }) => {
   return (
     <div className="w-full h-auto border rounded-md overflow-y-auto">
-      <WatchHeader/>
-      <WatchMovieItem />
+      <WatchHeader movies={movies} />
+      {movies && movies.map(movie => <WatchMovieItem key={movie.id} movie={movie} />)}
     </div>
   )
 }
