@@ -5,7 +5,7 @@ import {
   Trash2 as Trash2Icon
 } from "lucide-react"
 
-const WatchMovieItem = ({ movie }) => {
+const WatchMovieItem = ({ movie, onDeleteMovie }) => {
   return (
     <div className="flex items-center justify-between gap-5 item">
       <div className="flex items-center gap-4">
@@ -23,16 +23,16 @@ const WatchMovieItem = ({ movie }) => {
             </p>
             <p className="flex items-center gap-2">
               <ThumbsUpIcon size={20} strokeWidth={1.5} />
-              <span>8</span>
+              <span>{movie.userRating}</span>
             </p>
             <p className="flex items-center gap-2">
               <HourglassIcon size={20} strokeWidth={1.5} />
-              <span>{movie.runtime} min</span>
+              <span>{movie.runtime}</span>
             </p>
           </div>
         </div>
       </div>
-      <button>
+      <button onClick={() => onDeleteMovie(movie.id)}>
         <Trash2Icon 
           size={20} 
           strokeWidth={1.5} 

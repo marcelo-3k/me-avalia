@@ -1,4 +1,9 @@
-export const fetchMovies = async (url) => {
-  const response = await fetch(url)
-  return await response.json()    
-}
+export const getTotalMinutes = (watchedMovies) => {
+  const totalMinutes = watchedMovies
+    .reduce((acc, movie) => acc + +movie.runtime.split(' ')[0], 0);
+
+  const hours = Math.floor(totalMinutes / 60);
+  const minutes = totalMinutes % 60;
+
+  return `${hours}h ${minutes}m`;
+};

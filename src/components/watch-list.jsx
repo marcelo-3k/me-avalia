@@ -1,5 +1,6 @@
 import { Clapperboard as ClapperboardIcon, Watch as WatchIcon } from "lucide-react"
 import { WatchMovieItem } from "./watch-movie-item"
+import { getTotalMinutes } from "../lib/utils"
 
 const WatchHeader = ({ movies }) => {
   return (
@@ -11,22 +12,28 @@ const WatchHeader = ({ movies }) => {
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-2">
             <ClapperboardIcon size={20} strokeWidth={1.5} />
-            <span><strong>{movies ? movies.length : 0}</strong> filmes</span>
+            <span><strong>{movies.length}</strong> filmes</span>
           </div>
           <div className="flex items-center gap-2">
             <WatchIcon size={20} strokeWidth={1.5} />
-            <span>{movies ? movies.runtime : 0} min</span>
+            <span>{getTotalMinutes(movies)}</span>
           </div>
         </div>
       </div>
   )
 }
 
-const WatchList = ({ movies }) => {
+const WatchList = ({ movies, onDeleteMovie }) => {
   return (
     <div className="w-full h-auto border rounded-md overflow-y-auto">
       <WatchHeader movies={movies} />
-      {movies && movies.map(movie => <WatchMovieItem key={movie.id} movie={movie} />)}
+      {movies.length > 0 && movies.map(movie => (
+        <WatchMovieItem 
+          key={movie.id} 
+          movie={movie} 
+          onDeleteMovie={() => onDeleteMovie(movie.id)} 
+        />)
+      )}
     </div>
   )
 }
