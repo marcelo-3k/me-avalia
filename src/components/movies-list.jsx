@@ -2,8 +2,8 @@ import { MovieItem } from "./movie-item"
 
 const MoviesList = ({ movies, onSelected }) => {
   return (
-    <div className="w-full h-auto border rounded-md">
-      <p className="p-5 bg-violet-900/20">
+    <div className="w-full h-auto border rounded-md overflow-y-auto">
+      <p className="sticky top-0 p-5 bg-violet-200">
         <strong>{movies.length > 0 ? movies.length : 0}</strong> resultados encontrados.
       </p>
       <ul className="">

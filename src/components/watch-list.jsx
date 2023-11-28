@@ -12,7 +12,7 @@ const WatchHeader = ({ movies }) => {
         <div className="flex items-center gap-6">
           <div className="flex items-center gap-2">
             <ClapperboardIcon size={20} strokeWidth={1.5} />
-            <span><strong>{movies.length}</strong> filmes</span>
+            <span><strong>{movies?.length}</strong> filmes</span>
           </div>
           <div className="flex items-center gap-2">
             <WatchIcon size={20} strokeWidth={1.5} />
