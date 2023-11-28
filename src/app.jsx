@@ -1,7 +1,11 @@
+import { Header } from "./components/header"
+import { Panels } from "./components/panels"
+
 const App = () => {
   return (
     <>
-      <h1>Boilerplate</h1>
+      <Header />
+      <Panels />
     </>
   )
 }

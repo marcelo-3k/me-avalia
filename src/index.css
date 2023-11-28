@@ -1,23 +1,22 @@
-:root {
-  font-size: 16px;
-  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  color: rgba(255, 255, 255, 0.87);
-
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 html,
 body {
-  height: 100%;
-  background-color: hsl(260, 2%, 10%);
+  height: calc(100% - 1rem)
+}
+
+.root {
+  height: calc(100% - 130px);
+}
+
+@layer components {
+  .item {
+    @apply px-5 py-4 border-b hover:bg-violet-900/10 hover:cursor-pointer bg-violet-50
+  }
+
+  .rating-stars {
+    @apply flex items-center gap-1 m-5 p-4 border rounded text-yellow-400 bg-violet-50
+  }
 }

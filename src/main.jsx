@@ -6,7 +6,9 @@ import { App } from './app'
 import './index.css'
 
 const rootElement = document.querySelector('[data-js="root"]')
+rootElement.classList.add('root')
 const root = createRoot(rootElement)
+
 
 root.render(
   <StrictMode>
