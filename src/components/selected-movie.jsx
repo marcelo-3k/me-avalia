@@ -2,8 +2,8 @@ import { CornerDownLeft as CornerDownLeftIcon, Star as StarIcon } from "lucide-r
 
 const SelectedMovie = ({ movie, onBack, onRating }) => {
   return (
-    <div className="border rounded-md">
-      <div className="relative flex items-center gap-6 text-emerald-50 bg-emerald-900">
+    <div className="border rounded-md pb-5">
+      <div className="relative flex items-center gap-6 text-emerald-50 bg-emerald-900 rounded-t">
         <img
           src={movie.poster}
           alt={movie.title}
@@ -22,7 +22,7 @@ const SelectedMovie = ({ movie, onBack, onRating }) => {
         </div>
         <button 
           onClick={onBack}
-          className="absolute top-4 right-4 p-1 rounded border hover:bg-emerald-500 group"
+          className="absolute top-4 right-4 p-1 rounded border bg-emerald-500 md:bg-none hover:bg-emerald-500 group"
         >
           <CornerDownLeftIcon size={20} strokeWidth={2} />
           <span className="backtip">
@@ -52,7 +52,7 @@ const SelectedMovie = ({ movie, onBack, onRating }) => {
             <StarIcon size={20} strokeWidth={1.5} /> */}
             <span className="ml-2 text-emerald-800">0/10</span>
           </div>
-          <button className="btn">
+          <button className="btn bg-emerald-500 text-emerald-50 md:bg-transparent md:text-emerald-800">
             + Adicionar a lista
           </button>
         </form>
