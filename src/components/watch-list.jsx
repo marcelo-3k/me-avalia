@@ -25,7 +25,7 @@ const WatchHeader = ({ movies, onClean }) => {
 
 const WatchList = ({ movies, onDeleteMovie, onClean }) => {
   return (
-    <div className="w-full h-auto border rounded-md overflow-y-auto">
+    <div className="w-full h-auto order-1 border rounded-md overflow-y-auto">
       <WatchHeader movies={movies} onClean={onClean}/>
       {movies.length > 0 && movies.map(movie => (
         <WatchMovieItem 
