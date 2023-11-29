@@ -3,7 +3,7 @@ import { MovieItem } from "./movie-item"
 const MoviesList = ({ movies, onSelected }) => {
   return (
     <div className="w-full h-auto border rounded-md overflow-y-auto">
-      <p className="sticky top-0 p-5 bg-violet-200">
+      <p className="sticky top-0 p-5 bg-emerald-200">
         <strong>{movies.length > 0 ? movies.length : 0}</strong> resultados encontrados.
       </p>
       <ul className="">

@@ -36,7 +36,7 @@ const WatchMovieItem = ({ movie, onDeleteMovie }) => {
         <Trash2Icon 
           size={20} 
           strokeWidth={1.5} 
-          className="hover:text-violet-500 transition-colors" 
+          className="hover:text-emerald-500 transition-colors" 
         />
       </button>
     </div>

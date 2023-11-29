@@ -8,24 +8,26 @@ body {
 }
 
 .root {
+  width: 100%;
   height: calc(100% - 130px);
+  padding: 0 20px;
 }
 
 @layer components {
   .item {
-    @apply px-5 py-4 border-b hover:bg-violet-900/10 hover:cursor-pointer bg-violet-50
+    @apply px-5 py-4 border-b hover:bg-emerald-900/10 hover:cursor-pointer bg-emerald-50
   }
 
   .rating-stars {
-    @apply flex items-center gap-1 p-4 border rounded text-yellow-400 bg-violet-100
+    @apply flex items-center gap-1 p-4 border rounded text-yellow-400 bg-emerald-100
   }
 
   .backtip {
-    @apply hidden absolute -top-9 p-1 rounded text-sm text-violet-800 bg-violet-50 group-hover:inline-block
+    @apply hidden absolute -top-9 p-1 rounded text-sm text-emerald-800 bg-emerald-50 group-hover:inline-block
   }
 
   .btn {
-    @apply px-4 py-2 border rounded-md hover:bg-violet-500 hover:text-violet-50 transition-colors
+    @apply px-4 py-2 border rounded-md hover:bg-emerald-500 hover:text-emerald-50 transition-colors
   }
 }
 

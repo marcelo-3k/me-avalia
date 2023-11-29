@@ -3,7 +3,7 @@ import { CornerDownLeft as CornerDownLeftIcon, Star as StarIcon } from "lucide-r
 const SelectedMovie = ({ movie, onBack, onRating }) => {
   return (
     <div className="border rounded-md">
-      <div className="relative flex items-center gap-6 text-violet-50 bg-violet-900">
+      <div className="relative flex items-center gap-6 text-emerald-50 bg-emerald-900">
         <img
           src={movie.poster}
           alt={movie.title}
@@ -22,7 +22,7 @@ const SelectedMovie = ({ movie, onBack, onRating }) => {
         </div>
         <button 
           onClick={onBack}
-          className="absolute top-4 right-4 p-1 rounded border hover:bg-violet-500 group"
+          className="absolute top-4 right-4 p-1 rounded border hover:bg-emerald-500 group"
         >
           <CornerDownLeftIcon size={20} strokeWidth={2} />
           <span className="backtip">
@@ -33,7 +33,7 @@ const SelectedMovie = ({ movie, onBack, onRating }) => {
       <div>
         <form 
           onSubmit={onRating}
-          className="flex flex-col items-center justify-center gap-4 m-5 p-5 rounded border bg-violet-50">
+          className="flex flex-col items-center justify-center gap-4 m-5 p-5 rounded border bg-emerald-50">
           <div className="rating-stars">
             <select name="rating" defaultValue={0}>
               {Array.from({ length: 10 }, (_, i) => (
@@ -50,7 +50,7 @@ const SelectedMovie = ({ movie, onBack, onRating }) => {
             <StarIcon size={20} strokeWidth={1.5} />
             <StarIcon size={20} strokeWidth={1.5} />
             <StarIcon size={20} strokeWidth={1.5} /> */}
-            <span className="ml-2 text-violet-800">0/10</span>
+            <span className="ml-2 text-emerald-800">0/10</span>
           </div>
           <button className="btn">
             + Adicionar a lista

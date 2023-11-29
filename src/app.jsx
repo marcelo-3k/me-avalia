@@ -92,13 +92,13 @@ const App = () => {
 
   return (
     <>
-      <header className="w-full max-w-5xl mx-auto">
-        <div className="flex items-center justify-between mt-5 p-5 border rounded-md bg-violet-900/10">
+      <header className="block w-full max-w-5xl lg:mx-auto">
+        <div className="flex items-center flex-col sm:flex-row justify-between gap-6 sm:gap-0 mt-5 p-5 border rounded-md bg-emerald-900/10">
           <Logo />
           <SearchForm handleSearchMovie={handleSearchMovie}/>
         </div>
       </header>
-      <div className="grid grid-cols-2 gap-6 w-full h-full max-w-5xl mx-auto px-24 mt-6">
+      <div className="grid sm:grid-cols-2 gap-6 w-full h-full max-w-5xl mx-auto lg:px-24 mt-6">
         <MoviesList movies={movies} onSelected={handleSelectMovie}/>
         {selectedMovie 
           ? <SelectedMovie 
@@ -118,3 +118,4 @@ const App = () => {
 }
 
 export { App }
+
