@@ -1,16 +1,17 @@
 import { CornerDownLeft as CornerDownLeftIcon, Star as StarIcon } from "lucide-react"
+import { getPosterFallback } from "../lib/utils"
 
 const SelectedMovie = ({ movie, onBack, onRating }) => {
   return (
     <div className="border rounded-md pb-5">
       <div className="relative flex items-center gap-6 text-emerald-50 bg-emerald-900 rounded-t">
         <img
-          src={movie.poster}
+          src={getPosterFallback(movie.poster)}
           alt={movie.title}
           className="w-36 h-44 rounded-md object-cover"
         />
         <div>
-          <p className="text-xl font-semibold mb-3">{movie.title}</p>
+          <p className="w-[75%] line-clamp text-xl font-semibold mb-3">{movie.title}</p>
           <p className="text-sm mb-1">
             <span>{movie.released} &bull; {movie.runtime}</span>
           </p>
