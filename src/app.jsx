@@ -2,6 +2,8 @@ import { useEffect, useState } from "react"
 import { apiKey } from "./lib/constants"
 import { Main } from "./components/main"
 import { HeaderNavigation } from "./components/header-navigation"
+import toast, { Toaster } from "react-hot-toast"
+import { capitalizeMovieName } from "./lib/utils"
 
 const App = () => {
   const [movies, setMovies] = useState([])
@@ -23,6 +25,7 @@ const App = () => {
         setMovies(initialMovies)
       } catch (error) {
         console.log(error)
+        toast.error('Algo deu errado')
       }
     }
 
@@ -46,13 +49,15 @@ const App = () => {
       }))
 
       setMovies(moviesData) 
+      toast.success('10 resultados encontrados')
     } catch (error) {
-      console.log(error)
+      toast.error(`Nenhum resultado encontrado para ${capitalizeMovieName(searchMovie.value)}`)
     }
   }
 
   return (
     <>
+      <Toaster />
       <HeaderNavigation movies={movies} handleSearchMovie={handleSearchMovie} />
       <Main movies={movies} />
     </>

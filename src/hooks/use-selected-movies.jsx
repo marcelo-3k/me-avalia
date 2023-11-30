@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { apiKey } from "../lib/constants"
+import toast from "react-hot-toast"
 
 const useSelectedMovies = (setWatchedMovies) => {
   const [selectedMovie, setSelectedMovie] = useState(null)
@@ -33,8 +34,10 @@ const useSelectedMovies = (setWatchedMovies) => {
         released: movie.Released,
         genre: movie.Genre
       })
+
     } catch (error) {
       console.log(error)
+      toast.error('Algo deu errado')
     }
   }
 

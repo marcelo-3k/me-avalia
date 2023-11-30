@@ -7,3 +7,17 @@ export const getTotalMinutes = (watchedMovies) => {
 
   return `${hours}h ${minutes}m`;
 };
+
+export const capitalizeMovieName = (movieName) => {
+  const ignoredWords = ['e', 'a', 'do', 'das', 'des', 'de', 'na', 'nas', 'no', 'nos']
+
+  return movieName
+    .toLowerCase()
+    .split(' ')
+    .map((word, index) => 
+      index === 0 || !ignoredWords.includes(word) 
+        ? word.charAt(0).toUpperCase() + word.slice(1) 
+        : word
+    )
+    .join(' ')
+}
