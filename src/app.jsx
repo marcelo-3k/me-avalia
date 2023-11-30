@@ -34,17 +34,21 @@ const App = () => {
 
     const { searchMovie } = e.target.elements
 
-    const response = await fetch(`https://omdbapi.com/?apikey=${apiKey}&s=${searchMovie.value}`)
-    const data = await response.json()
+    try {
+      const response = await fetch(`https://omdbapi.com/?apikey=${apiKey}&s=${searchMovie.value}`)
+      const data = await response.json()
 
-    const moviesData = data.Search.map(movie => ({
-      id: movie.imdbID,
-      title: movie.Title,
-      year: movie.Year,
-      poster: movie.Poster
-    }))
+      const moviesData = data.Search.map(movie => ({
+        id: movie.imdbID,
+        title: movie.Title,
+        year: movie.Year,
+        poster: movie.Poster
+      }))
 
-    setMovies(moviesData) 
+      setMovies(moviesData) 
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   return (

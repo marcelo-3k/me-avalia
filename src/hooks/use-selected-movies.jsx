@@ -6,6 +6,7 @@ const useSelectedMovies = (setWatchedMovies) => {
 
   const handleCleanWatchedMovieList = () => setWatchedMovies([])
   const handleSelectBack = () => setSelectedMovie(null)
+
   const handleSelectMovie = async (currentSelectedMovie) => {
     const prevSelectedMovie = selectedMovie
 
@@ -14,23 +15,27 @@ const useSelectedMovies = (setWatchedMovies) => {
       return
     }
 
-    const url = `https://www.omdbapi.com/?apikey=${apiKey}&i=${currentSelectedMovie.id}`
-    const response = await fetch(url)
-    const movie = await response.json()
+    try {
+      const url = `https://www.omdbapi.com/?apikey=${apiKey}&i=${currentSelectedMovie.id}`
+      const response = await fetch(url)
+      const movie = await response.json()
 
-    setSelectedMovie({
-      id: movie.imdbID,
-      title: movie.Title,
-      year: movie.Year,
-      poster: movie.Poster,
-      imdbRating: movie.imdbRating,
-      runtime: movie.Runtime,
-      plot: movie.Plot,
-      actors: movie.Actors,
-      director: movie.Director,
-      released: movie.Released,
-      genre: movie.Genre
-    })
+      setSelectedMovie({
+        id: movie.imdbID,
+        title: movie.Title,
+        year: movie.Year,
+        poster: movie.Poster,
+        imdbRating: movie.imdbRating,
+        runtime: movie.Runtime,
+        plot: movie.Plot,
+        actors: movie.Actors,
+        director: movie.Director,
+        released: movie.Released,
+        genre: movie.Genre
+      })
+    } catch (error) {
+      console.log(error)
+    }
   }
 
   const handleRating = (e) => {
