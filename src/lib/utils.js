@@ -21,3 +21,5 @@ export const capitalizeMovieName = (movieName) => {
     )
     .join(' ')
 }
+
+export const getPosterFallback = (src) => src !== 'N/A' ? src : 'notfound-640x640.jpg'

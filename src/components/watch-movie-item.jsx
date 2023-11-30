@@ -4,13 +4,14 @@ import {
   Hourglass as HourglassIcon,
   Trash2 as Trash2Icon
 } from "lucide-react"
+import { getPosterFallback } from "../lib/utils"
 
 const WatchMovieItem = ({ movie, onDeleteMovie }) => {
   return (
     <div className="flex items-center justify-between gap-5 item">
       <div className="flex items-center gap-4">
         <img
-          src={movie.poster}
+          src={getPosterFallback(movie.poster)}
           alt={movie.title}
           className="w-16 h-20 rounded-md border"
         />

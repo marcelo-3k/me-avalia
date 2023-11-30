@@ -1,4 +1,5 @@
 import { Calendar as CalendarIcon } from "lucide-react"
+import { getPosterFallback } from "../lib/utils"
 
 const MovieItem = ({ poster, title, year, onSelected }) => {
   return (
@@ -7,7 +8,7 @@ const MovieItem = ({ poster, title, year, onSelected }) => {
       className="flex flex-col items-start gap-5 md:flex-row md:items-center item" 
     >
       <img 
-        src={poster} 
+        src={getPosterFallback(poster)} 
         alt=""
         className="w-full md:w-16 md:h-20 rounded-md border" 
       />
