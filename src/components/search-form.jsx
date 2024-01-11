@@ -1,8 +1,8 @@
 import { Search as SearchIcon } from "lucide-react"
 
-const SearchForm = ({ handleSearchMovie }) => {
+const SearchForm = ({ handleSearchMovie, formRef }) => {
   return (
-    <form className="w-fit max-w-full relative" onSubmit={handleSearchMovie}>
+    <form ref={formRef} className="w-fit max-w-full relative" onSubmit={handleSearchMovie}>
       <label htmlFor="search" className="sr-only"></label>
       <input
         type="search"

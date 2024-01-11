@@ -41,11 +41,17 @@ const useSelectedMovies = (setWatchedMovies) => {
     }
   }
 
-  const handleRating = (e) => {
-    e.preventDefault()
-    const { rating } = e.target.elements
+  const handleRating = userRating => {
+    setWatchedMovies(prev => {
+      const isDuplicated = prev.some(movie => movie.id === selectedMovie.id)
 
-    setWatchedMovies(prev => [...prev, { ...selectedMovie, userRating: rating.value }])
+      if (isDuplicated) {
+        return prev.map(m => m.id === selectedMovie.id ? { ...selectedMovie, userRating } : m)
+      }
+
+      return [...prev, { ...selectedMovie, userRating }]
+    })
+
     setSelectedMovie(null)
   }
 
@@ -54,7 +60,7 @@ const useSelectedMovies = (setWatchedMovies) => {
     handleCleanWatchedMovieList, 
     handleSelectBack, 
     handleSelectMovie, 
-    handleRating 
+    handleRating
   }
 }
  

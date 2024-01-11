@@ -13,17 +13,12 @@ const Main = ({ movies }) => {
     handleSelectBack, 
     handleSelectMovie 
   } = useSelectedMovies(setWatchedMovies)
-
   
   return (
     <div className="grid sm:grid-cols-2 gap-6 w-full h-full max-w-5xl mx-auto lg:px-24 mt-6">
       <MoviesList movies={movies} onSelected={handleSelectMovie}/>
       {selectedMovie 
-        ? <SelectedMovie 
-          movie={selectedMovie} 
-          onBack={handleSelectBack} 
-          onRating={handleRating}
-        /> 
+        ? <SelectedMovie movie={selectedMovie} onBack={handleSelectBack} onRating={handleRating} /> 
         : <WatchList 
             movies={watchedMovies} 
             onDeleteMovie={handleClickDelete} 

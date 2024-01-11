@@ -1,7 +1,13 @@
 import { CornerDownLeft as CornerDownLeftIcon, Star as StarIcon } from "lucide-react"
 import { getPosterFallback } from "../lib/utils"
+import { StarRating } from "./star-rating"
+import { useState } from "react";
 
 const SelectedMovie = ({ movie, onBack, onRating }) => {
+  const [rating, setRating] = useState(0);
+
+  const handleRating = userRating => setRating(userRating)
+
   return (
     <div className="border rounded-md pb-5">
       <div className="relative flex items-center gap-6 text-emerald-50 bg-emerald-900 rounded-t">
@@ -31,32 +37,16 @@ const SelectedMovie = ({ movie, onBack, onRating }) => {
           </span>
         </button>
       </div>
-      <div>
-        <form 
-          onSubmit={onRating}
-          className="flex flex-col items-center justify-center gap-4 m-5 p-5 rounded border bg-emerald-50">
-          <div className="rating-stars">
-            <select name="rating" defaultValue={0}>
-              {Array.from({ length: 10 }, (_, i) => (
-                <option key={i} value={i + 1}>{i + 1}</option>
-              ))}
-            </select>
-            {/* <StarIcon size={20} strokeWidth={1.5} />
-            <StarIcon size={20} strokeWidth={1.5} />
-            <StarIcon size={20} strokeWidth={1.5} />
-            <StarIcon size={20} strokeWidth={1.5} />
-            <StarIcon size={20} strokeWidth={1.5} />
-            <StarIcon size={20} strokeWidth={1.5} />
-            <StarIcon size={20} strokeWidth={1.5} />
-            <StarIcon size={20} strokeWidth={1.5} />
-            <StarIcon size={20} strokeWidth={1.5} />
-            <StarIcon size={20} strokeWidth={1.5} /> */}
-            <span className="ml-2 text-emerald-800">0/10</span>
-          </div>
-          <button className="btn bg-emerald-500 text-emerald-50 md:bg-transparent md:text-emerald-800">
+      <div className="">
+        <div className="flex flex-col items-center gap-3 p-4 mb-6 border-b">
+          <StarRating onRating={handleRating} />
+          <button
+            onClick={() => onRating(rating)}
+            className="btn bg-emerald-500 text-emerald-50 hover:bg-emerald-600"
+          >
             + Adicionar a lista
           </button>
-        </form>
+        </div>
         <div className="grid gap-4 px-5 text-sm text-zinc-500">
           <p>{movie.plot}</p>
           <p><strong>Elenco</strong>: {movie.actors}</p>

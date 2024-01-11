@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { apiKey } from "./lib/constants"
 import { Main } from "./components/main"
 import { HeaderNavigation } from "./components/header-navigation"
@@ -7,6 +7,15 @@ import { capitalizeMovieName } from "./lib/utils"
 
 const App = () => {
   const [movies, setMovies] = useState([])
+  const formRef = useRef(null)
+
+  useEffect(() => {
+    const searchMovieValue = formRef.current.elements.searchMovie.value
+    
+    if (searchMovieValue.length > 0) {
+      formRef.current?.reset()
+    }
+  }, [movies])
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -38,6 +47,10 @@ const App = () => {
     const { searchMovie } = e.target.elements
 
     try {
+      if (!searchMovie.value) {
+        return
+      }
+      
       const response = await fetch(`https://omdbapi.com/?apikey=${apiKey}&s=${searchMovie.value}`)
       const data = await response.json()
 
@@ -58,11 +71,10 @@ const App = () => {
   return (
     <>
       <Toaster />
-      <HeaderNavigation movies={movies} handleSearchMovie={handleSearchMovie} />
+      <HeaderNavigation movies={movies} handleSearchMovie={handleSearchMovie} formRef={formRef} />
       <Main movies={movies} />
     </>
   )
 }
 
 export { App }
-
