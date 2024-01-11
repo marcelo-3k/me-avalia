@@ -1,8 +1,8 @@
-import { MoviesList } from "../components/movies-list"
-import { SelectedMovie } from "../components/selected-movie"
-import { WatchList } from "../components/watch-list"
-import { useWatchedMovies } from "../hooks/use-watched-movies"
-import { useSelectedMovies } from "../hooks/use-selected-movies"
+import { MoviesList } from "#/components/movies-list"
+import { SelectedMovie } from "#/components/selected-movie"
+import { WatchList } from "#/components/watch-list"
+import { useWatchedMovies } from "#/hooks/use-watched-movies"
+import { useSelectedMovies } from "#/hooks/use-selected-movies"
 
 const Main = ({ movies }) => {
   const { watchedMovies, setWatchedMovies, handleClickDelete} = useWatchedMovies()

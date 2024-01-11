@@ -1,5 +1,5 @@
 import { Calendar as CalendarIcon } from "lucide-react"
-import { getPosterFallback } from "../lib/utils"
+import { getPosterFallback } from "#/lib/utils"
 
 const MovieItem = ({ poster, title, year, onSelected }) => {
   return (

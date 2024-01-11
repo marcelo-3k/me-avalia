@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react"
-import { apiKey } from "./lib/constants"
-import { Main } from "./components/main"
-import { HeaderNavigation } from "./components/header-navigation"
+import { apiKey } from "#/lib/constants"
+import { Main } from "#/components/main"
+import { HeaderNavigation } from "#/components/header-navigation"
 import toast, { Toaster } from "react-hot-toast"
-import { capitalizeMovieName } from "./lib/utils"
+import { capitalizeMovieName } from "#/lib/utils"
 
 const App = () => {
   const [movies, setMovies] = useState([])

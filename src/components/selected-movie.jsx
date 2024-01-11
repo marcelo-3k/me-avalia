@@ -1,7 +1,7 @@
-import { CornerDownLeft as CornerDownLeftIcon, Star as StarIcon } from "lucide-react"
-import { getPosterFallback } from "../lib/utils"
-import { StarRating } from "./star-rating"
 import { useState } from "react";
+import { CornerDownLeft as CornerDownLeftIcon, Star as StarIcon } from "lucide-react"
+import { getPosterFallback } from "#/lib/utils"
+import { StarRating } from "#/components/star-rating"
 
 const SelectedMovie = ({ movie, onBack, onRating }) => {
   const [rating, setRating] = useState(0);

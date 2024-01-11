@@ -4,7 +4,7 @@ import {
   Hourglass as HourglassIcon,
   Trash2 as Trash2Icon
 } from "lucide-react"
-import { getPosterFallback } from "../lib/utils"
+import { getPosterFallback } from "#/lib/utils"
 
 const WatchMovieItem = ({ movie, onDeleteMovie }) => {
   return (

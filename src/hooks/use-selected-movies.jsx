@@ -1,6 +1,6 @@
-import { useState } from "react"
-import { apiKey } from "../lib/constants"
 import toast from "react-hot-toast"
+import { useState } from "react"
+import { apiKey } from "#/lib/constants"
 
 const useSelectedMovies = (setWatchedMovies) => {
   const [selectedMovie, setSelectedMovie] = useState(null)

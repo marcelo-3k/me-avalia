@@ -1,6 +1,6 @@
 import { Clapperboard as ClapperboardIcon, Watch as WatchIcon } from "lucide-react"
-import { WatchMovieItem } from "./watch-movie-item"
-import { getTotalMinutes } from "../lib/utils"
+import { WatchMovieItem } from "#/components/watch-movie-item"
+import { getTotalMinutes } from "#/lib/utils"
 
 const WatchHeader = ({ movies, onClean }) => {
   return (

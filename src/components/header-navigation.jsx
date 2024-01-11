@@ -1,5 +1,5 @@
-import { Logo } from "./logo"
-import { SearchForm } from "./search-form"
+import { Logo } from "#/components/logo"
+import { SearchForm } from "#/components/search-form"
 
 const HeaderNavigation = ({ handleSearchMovie, formRef }) => {
   return (

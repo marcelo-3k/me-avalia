@@ -1,4 +1,4 @@
-import { MovieItem } from "./movie-item"
+import { MovieItem } from "#/components/movie-item"
 
 const MoviesList = ({ movies, onSelected }) => {
   return (
